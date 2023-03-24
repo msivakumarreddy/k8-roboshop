@@ -11,3 +11,16 @@ spec:
   containers:
   - image: techworldwithsiva/web:k8
     name: web
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-service
+spec:
+  type: LoadBalancer
+  selector:
+    name: web
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
