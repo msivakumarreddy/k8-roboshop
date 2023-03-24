@@ -26,6 +26,19 @@ spec:
     name: mongodb
 ---
 apiVersion: v1
+kind: Pod
+metadata:
+  name: almalinux
+  namespace: roboshop
+  labels:
+    name: almalinux
+    tier: db
+spec:
+  containers:
+  - image: almalinux
+    name: almalinux
+---
+apiVersion: v1
 kind: Service
 metadata:
   name: web-service
