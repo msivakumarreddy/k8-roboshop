@@ -1,4 +1,4 @@
 apiVersion: v1
-kind: Namespaace
+kind: Namespace
 metadata:
   name: roboshop
