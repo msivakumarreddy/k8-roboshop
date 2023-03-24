@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web
+  namespace: roboshop
+  labels:
+    name: web
+    tier: frontend
+spec:
+  containers:
+  - image: techworldwithsiva/web:k8
+    name: web
