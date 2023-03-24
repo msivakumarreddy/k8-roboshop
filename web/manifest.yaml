@@ -37,6 +37,7 @@ spec:
   containers:
   - image: almalinux
     name: almalinux
+    command: ["sleep","10000"]
 ---
 apiVersion: v1
 kind: Service
