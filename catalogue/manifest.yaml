@@ -16,7 +16,7 @@ metadata:
     tier: app
 spec:
   containers:
-  - image: techworldwithsiva/catalogue:v1
+  - image: techworldwithsiva/catalogue:v2
     name: catalogue
     envFrom:
     - configMapRef:
