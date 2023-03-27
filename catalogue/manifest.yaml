@@ -18,6 +18,9 @@ spec:
   containers:
   - image: techworldwithsiva/catalogue:v1
     name: catalogue
+    envFrom:
+    - configMapRef:
+        name: catalogue-config
 ---
 apiVersion: v1
 kind: Service
