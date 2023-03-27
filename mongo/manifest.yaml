@@ -1,27 +1,27 @@
----
+
 apiVersion: v1
 kind: Pod
 metadata:
-  name: web
+  name: mongodb
   namespace: roboshop
   labels:
-    name: web
-    tier: frontend
+    name: mongodb
+    tier: db
 spec:
   containers:
-  - image: techworldwithsiva/web:k8
-    name: web
+  - image: techworldwithsiva/mongodb:v1
+    name: mongodb
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: web-service
+  name: mongodb
   namespace: roboshop
 spec:
-  type: LoadBalancer
   selector:
-    name: web
+    name: mongodb
+    tier: db
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 80
+      targetPort: 27017

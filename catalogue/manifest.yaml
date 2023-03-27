@@ -1,12 +1,19 @@
 ---
 apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: catalogue-config
+data:
+  MONGO_URL: "http://mongodb-service:80"
+---
+apiVersion: v1
 kind: Pod
 metadata:
-  name: web
+  name: catalogue
   namespace: roboshop
   labels:
-    name: web
-    tier: frontend
+    name: catalogue
+    tier: app
 spec:
   containers:
   - image: techworldwithsiva/web:k8
@@ -15,12 +22,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: web-service
+  name: catalogue-service
   namespace: roboshop
 spec:
-  type: LoadBalancer
   selector:
-    name: web
+    name: catalogue
+    tier: app
   ports:
     - protocol: TCP
       port: 80
