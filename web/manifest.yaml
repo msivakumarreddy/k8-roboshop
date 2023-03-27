@@ -9,7 +9,7 @@ metadata:
     tier: frontend
 spec:
   containers:
-  - image: techworldwithsiva/web:k8
+  - image: techworldwithsiva/web:v2
     name: web
 ---
 apiVersion: v1
