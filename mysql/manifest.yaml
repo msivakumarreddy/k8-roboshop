@@ -4,6 +4,7 @@ kind: Pod
 metadata:
   name: mysql
   namespace: roboshop
+  imagePullPolicy: Always
   labels:
     name: mysql
     tier: db
