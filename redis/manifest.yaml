@@ -1,0 +1,27 @@
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis
+  namespace: roboshop
+  labels:
+    name: redis
+    tier: db
+spec:
+  containers:
+  - image: techworldwithsiva/redis:v1
+    name: redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  namespace: roboshop
+spec:
+  selector:
+    name: redis
+    tier: db
+  ports:
+    - protocol: TCP
+      port: 6379
+      targetPort: 6379
