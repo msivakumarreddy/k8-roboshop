@@ -17,7 +17,7 @@ metadata:
     tier: app
 spec:
   containers:
-  - image: techworldwithsiva/user:v2
+  - image: techworldwithsiva/user:v1
     name: user
     envFrom:
     - configMapRef:
