@@ -2,34 +2,35 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: catalogue-config
+  name: shipping-config
 data:
-  MONGO_URL: "mongodb://mongodb:80/catalogue"
+  CART_ENDPOINT: "cart:80"
+  DB_HOST: "mysql"
 ---
 apiVersion: v1
 kind: Pod
 metadata:
-  name: catalogue
+  name: shipping
   namespace: roboshop
   labels:
-    name: catalogue
+    name: shipping
     tier: app
 spec:
   containers:
-  - image: techworldwithsiva/catalogue:v2
-    name: catalogue
+  - image: techworldwithsiva/shipping:v2
+    name: shipping
     envFrom:
     - configMapRef:
-        name: catalogue-config
+        name: shipping-config
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: catalogue
+  name: shipping
   namespace: roboshop
 spec:
   selector:
-    name: catalogue
+    name: shipping
     tier: app
   ports:
     - protocol: TCP
