@@ -9,7 +9,8 @@ metadata:
     tier: frontend
 spec:
   containers:
-  - image: techworldwithsiva/web:v2
+  - image: techworldwithsiva/web:k8
+    imagePullPolicy: Always
     name: web
 ---
 apiVersion: v1
