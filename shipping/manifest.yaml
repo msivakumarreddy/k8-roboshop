@@ -17,7 +17,7 @@ metadata:
     tier: app
 spec:
   containers:
-  - image: techworldwithsiva/shipping:v2
+  - image: techworldwithsiva/shipping:v1
     name: shipping
     envFrom:
     - configMapRef:
