@@ -6,6 +6,7 @@ metadata:
 data:
   USER_HOST: "user"
   CART_HOST: "cart"
+  AMQP_HOST: "rabbitmq"
 ---
 apiVersion: v1
 kind: Pod
