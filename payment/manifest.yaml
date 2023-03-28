@@ -1,0 +1,38 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: payment-config
+data:
+  USER_HOST: "user"
+  CART_HOST: "cart"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: payment
+  namespace: roboshop
+  labels:
+    name: payment
+    tier: app
+spec:
+  containers:
+  - image: techworldwithsiva/payment:v2
+    name: payment
+    envFrom:
+    - configMapRef:
+        name: payment-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment
+  namespace: roboshop
+spec:
+  selector:
+    name: payment
+    tier: app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
