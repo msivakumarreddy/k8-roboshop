@@ -1,0 +1,27 @@
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mysql
+  namespace: roboshop
+  labels:
+    name: mysql
+    tier: db
+spec:
+  containers:
+  - image: techworldwithsiva/mysql:v1
+    name: mysql
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+  namespace: roboshop
+spec:
+  selector:
+    name: mysql
+    tier: db
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
