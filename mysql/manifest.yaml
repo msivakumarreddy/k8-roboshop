@@ -5,7 +5,6 @@ kind: Pod
 metadata:
   name: mysql
   namespace: roboshop
-  imagePullPolicy: Always
   labels:
     name: mysql
     tier: db
@@ -13,6 +12,7 @@ spec:
   containers:
   - image: techworldwithsiva/mysql:v1
     name: mysql
+    imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service
