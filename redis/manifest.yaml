@@ -9,7 +9,7 @@ metadata:
     tier: db
 spec:
   containers:
-  - image: techworldwithsiva/redis:v1
+  - image: redis:v1
     name: redis
 ---
 apiVersion: v1
